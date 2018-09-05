@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    
+</head>
+<body>
+     
+        <div class="jumbotron jumbotron-fluid" class="container">
+                <div class="container">
+                  <h1 class="display-4">Presidential Trivia</h1>
+                </div>
+              </div> 
+    <div class="game"></div>
+        <h2 class ="timer">Time Left:</h2>
+        <h1 class = "over">Times Up</h1>
+        <button class ="startQuiz">Begin</button>
+        <section class = "q1">
+            <h2 class = "quizQuest"></h2>
+            
+                <div class="custom-control custom-radio"><input type="radio" id="customRadio1" value= "Lyndon Johnson" name="customRadio" class="custom-control-input"><label class="custom-control-label" id = "ans1" for="customRadio1"></label>
+                </div>
+                <div class="custom-control custom-radio"><input type="radio" id="customRadio2" value = "Teddy Roosevelt" name="customRadio" class="custom-control-input"><label class="custom-control-label" id=  "ans2" for="customRadio2"></label>
+                </div>
+                <div class="custom-control custom-radio"><input type="radio" id="customRadio3" value = "Gerald Ford" name="customRadio" class="custom-control-input"><label class="custom-control-label" id = "ans3" for="customRadio3"></label>
+                </div>
+                <div class="custom-control custom-radio"><input type="radio" id="customRadio4" value = "Benjamin Harrison" name="customRadio" class="custom-control-input"><label class="custom-control-label" id = "ans4" for="customRadio4"></label>
+                </div>
+                <button type="button" class="btn btn-dark" id ="q2">NEXT</button>
+                <button type="button" class="btn btn-dark" id ="submit">SUBMIT</button>
+        </section class = "fin">
+        <h2 class = "fin" id = "right">Correct</h2><h2 class = "fin" id = "wrong">Incorrect</h2>
+        <h4 class = "fin" id= "message"></h4>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+</html>

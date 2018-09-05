@@ -1,0 +1,64 @@
+.green{
+
+}
+.jumbotron{
+    color:white;
+    border: 5px solid red;
+    text-align: center;
+}
+.container{
+    background-color: blue;
+    
+}
+.timer{
+    color:blue;
+    text-align: center;
+}
+.over{
+    background-color: red;
+    color: white;
+    text-align: center
+}
+.game{
+    background-color: rgb(56, 56, 236);
+}
+.bad{
+    color:red;
+}
+.q1{
+    background-color:  rgb(56, 56, 236);
+    color:white;
+    margin: auto;
+    width: 50%;
+    border: 5px solid red;
+}
+.fin{
+    text-align: center;
+}
+#right{
+    color:blue;
+}
+#wrong{
+    color:red;
+}
+#submit{
+    padding: 3px;
+    color: white;
+    background-color: red;
+    width: 100%;
+}
+#q2{
+    padding: 3px;
+    color: white;
+    background-color: red;
+    width: 100%;
+}
+.quizQuest{
+    text-align: center;
+    padding-bottom: 5%;
+}
+.startQuiz{
+    width: 10%;
+    margin-left: 45%;
+    margin-right: 45%;
+}
