@@ -29,6 +29,9 @@ let rightAns = ["Gerald Ford", "William Taft", "Bill Clinton", "Grover Cleveland
 let timeRemaining = 60
 let correct = 0
 let incorrect= 0
+let answered = 0
+let question= 1
+let wrongList = []
 $(".over").hide()
 $(".q1").hide()
 $("#submit").hide()
@@ -40,6 +43,7 @@ function end(){
     $(`.timer`).hide()
     $(`#right`).text("Correct:"+correct)
     $(`#wrong`).text("Incorrect:"+incorrect)
+    showWrg(wrongList)
     $(`.fin`).show()
     if(correct === 8){$(`#message`).text("Perfect")}
     if(correct === 7){$(`#message`).text("Almost")}
@@ -48,21 +52,58 @@ function end(){
     if(correct <= 4){$(`#message`).text("Those who fail History are doomed to repeat it")}
     
 }
+function showWrg(data){
+    if(data.length>0 && answered<=8){
 
+        data.map((ans)=>{
+        $('.finC').append(
+            `<div class= "row ans justify-content-center">
+                <div class="col-1 q">Q${ans.q}</div>
+                <div class="col-3 wrg">Yours:
+                ${" "+ans.yours}
+                </div>
+                <div class="col-3 rt">
+                Correct:${" "+ans.right}
+                </div>
+            </div>`)
+        })
+    }
+}
 function checkAnswer() {
      
     var answer =  $(`input:checked`).val();
      if(answer === rightChoice){
         correct++
+        answered++
+        question++
      }
-     else if(answer !== rightChoice){
+     else if(answer !== rightChoice && answer!== undefined){
+         let wrongObj = {
+             q:question,
+             yours: answer,
+             right: rightChoice
+         }
+         wrongList.push(wrongObj)
          incorrect++
+         answered++
+         question++
      }   
+     else if(answer !== rightChoice && answer === undefined){
+        let wrongObj = {
+            q:question,
+            yours: 'Not Answered',
+            right: rightChoice
+        }
+        wrongList.push(wrongObj)
+        incorrect++
+        answered++
+        question++
+     }
 }
 
 let j=1
    $(`.startQuiz`).click(function(){
-    $(`.timer`).hide()
+    $(`.timer`).show()
     function next1(){
         let i=j++
             $(".quizQuest").text("Q:" + questions[i].quest);
@@ -94,11 +135,15 @@ let j=1
    let gameClock= setInterval(countdown, 1000)
     function countdown(){
         
-        $(`.timer`).text("Time Left:"+timeRemaining+"secs");
+        $(`.timer`).text("Time Left:"+"  "+timeRemaining);
         timeRemaining--;
 
-    if(timeRemaining === -2 ){
-        incorrect++;
+    if(timeRemaining === -2 && answered < 8 ){
+        let none=8-answered
+        console.log(none)
+        let noPts=incorrect+none;
+        incorrect=noPts
+        console.log(noPts)
         clearInterval(gameClock)
         $(`.over`).show()
         end()    
